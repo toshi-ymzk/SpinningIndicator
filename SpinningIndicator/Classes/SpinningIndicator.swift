@@ -101,6 +101,45 @@ public class SpinningIndicator: UIView {
     }
 }
 
+extension SpinningIndicator {
+    
+    func beginAnimatingFromShrink() {
+        isAnimating = true
+        DispatchQueue.main.async {
+            if self.layer.animation(forKey: self.rotationAnimKey) == nil {
+                self.layer.add(self.rotationAnimation, forKey: self.rotationAnimKey)
+            }
+            self.shrink()
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.4, execute: {
+                self.shapeLayers.forEach { $0.removeAllAnimations() }
+                self.beginAnimating()
+            })
+        }
+    }
+    
+    func shrink() {
+        let min = CGFloat(0.02)
+        let max = CGFloat(strokeEnd)
+        self.shapeLayers.forEach { $0.strokeEnd = min }
+        self.shapeLayers.forEach { $0.add(
+            self.keyFrameRotationAnimation(
+                duration: 0.4,
+                times: [0, 1],
+                values: [0, 0.66],
+                timingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)),
+            forKey: self.rotationAnimKey)
+        }
+        self.shapeLayers.forEach { $0.add(
+            self.keyFrameStrokeEndAnimation(
+                duration: 0.4,
+                times: [0, 1],
+                values: [max, min],
+                timingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)),
+            forKey: self.strokeEndAnimKey)
+        }
+    }
+}
+
 /**
  * Animation Utility
  */
