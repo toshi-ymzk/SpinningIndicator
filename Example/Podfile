@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SpinningIndicator_Example' do
+  pod 'SpinningIndicator', :path => '../'
+
+  target 'SpinningIndicator_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

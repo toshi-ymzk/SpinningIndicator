@@ -1,0 +1,16 @@
+PODS:
+  - SpinningIndicator (0.1.0)
+
+DEPENDENCIES:
+  - SpinningIndicator (from `../`)
+
+EXTERNAL SOURCES:
+  SpinningIndicator:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SpinningIndicator: b03a4811e4613c1aedd2102f7b1ed03a1f08f4ba
+
+PODFILE CHECKSUM: 281fdd4b74e26a682a9e333dac34e146dd91c6bc
+
+COCOAPODS: 1.6.0

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="SpinningIndicator_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KR4-8C-lgO">
+                                <rect key="frame" x="20" y="714" width="335" height="64"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mrt-G0-m4h">
+                                        <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="64"/>
+                                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="deviceRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <state key="normal" title="Stop">
+                                            <color key="titleColor" red="1" green="0.35686274509999999" blue="0.098039215690000001" alpha="1" colorSpace="deviceRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="hideIndicator" destination="vXZ-lx-hvc" eventType="touchUpInside" id="OPZ-aU-WRm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HhN-EO-wM7">
+                                        <rect key="frame" x="177.66666666666663" y="0.0" width="157.33333333333337" height="64"/>
+                                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="deviceRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <state key="normal" title="Start">
+                                            <color key="titleColor" red="1" green="0.35686274509999999" blue="0.098039215690000001" alpha="1" colorSpace="deviceRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="showIndicator" destination="vXZ-lx-hvc" eventType="touchUpInside" id="v0H-Fa-f4X"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Mrt-G0-m4h" firstAttribute="height" secondItem="KR4-8C-lgO" secondAttribute="height" id="EZr-GE-Uzc"/>
+                                    <constraint firstItem="HhN-EO-wM7" firstAttribute="width" secondItem="Mrt-G0-m4h" secondAttribute="width" id="Uj4-UG-rco"/>
+                                    <constraint firstItem="Mrt-G0-m4h" firstAttribute="centerY" secondItem="KR4-8C-lgO" secondAttribute="centerY" id="VdZ-cO-cun"/>
+                                    <constraint firstItem="HhN-EO-wM7" firstAttribute="height" secondItem="KR4-8C-lgO" secondAttribute="height" id="Xuu-9a-0nC"/>
+                                    <constraint firstAttribute="height" constant="64" id="Z0z-Ti-Bn1"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="KR4-8C-lgO" secondAttribute="trailing" constant="20" id="Yp8-1g-AZs"/>
+                            <constraint firstItem="KR4-8C-lgO" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="cFH-1c-Tim"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="KR4-8C-lgO" secondAttribute="bottom" id="m2O-6M-9PL"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
