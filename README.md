@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/SpinningIndicator.svg?style=flat)](https://cocoapods.org/pods/SpinningIndicator)
 [![Platform](https://img.shields.io/cocoapods/p/SpinningIndicator.svg?style=flat)](https://cocoapods.org/pods/SpinningIndicator)
 
+![Demo](https://github.com/toshihiro-yamazaki/SpinningIndicator/blob/demo/demo.gif)
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
