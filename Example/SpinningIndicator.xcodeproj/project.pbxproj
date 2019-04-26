@@ -40,11 +40,11 @@
 		607FACE51AFB9204008FA782 /* SpinningIndicator_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpinningIndicator_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		9FFB855630F7225377707CC3 /* SpinningIndicator.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = SpinningIndicator.podspec; path = ../SpinningIndicator.podspec; sourceTree = "<group>"; };
+		9FFB855630F7225377707CC3 /* SpinningIndicator.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SpinningIndicator.podspec; path = ../SpinningIndicator.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A2E9BDD8E9B82308786A39CD /* Pods-SpinningIndicator_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpinningIndicator_Tests.release.xcconfig"; path = "Target Support Files/Pods-SpinningIndicator_Tests/Pods-SpinningIndicator_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		B9984AF8F11533FF235F9F5B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		B9984AF8F11533FF235F9F5B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C4077D75A2DBB1EF46AF6DB7 /* Pods_SpinningIndicator_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpinningIndicator_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C6F5DA18AC918BF971B8965B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		C6F5DA18AC918BF971B8965B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E2F24BCDD45CC8FB7BE9C0C1 /* Pods-SpinningIndicator_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpinningIndicator_Example.release.xcconfig"; path = "Target Support Files/Pods-SpinningIndicator_Example/Pods-SpinningIndicator_Example.release.xcconfig"; sourceTree = "<group>"; };
 		EE9BBB447E8C24B9E09335AA /* Pods-SpinningIndicator_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpinningIndicator_Example.debug.xcconfig"; path = "Target Support Files/Pods-SpinningIndicator_Example/Pods-SpinningIndicator_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,7 +147,6 @@
 				51CED83C6E09567F12FFD273 /* Pods-SpinningIndicator_Tests.debug.xcconfig */,
 				A2E9BDD8E9B82308786A39CD /* Pods-SpinningIndicator_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -227,6 +226,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
