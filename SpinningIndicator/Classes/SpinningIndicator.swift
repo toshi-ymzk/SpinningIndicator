@@ -12,17 +12,16 @@ import UIKit
 public class SpinningIndicator: UIView {
     
     public let size = CGSize(width: 24, height: 24)
+    public lazy var radius = self.size.width / 2 + 4
+    public lazy var shapeLayers: [CAShapeLayer] = [innerLayer, outerLayer]
+    public var isAnimating = false
+    public var strokeEnd: Double = 0.8
     
     private let innerLayer = CAShapeLayer()
     private let outerLayer = CAShapeLayer()
-    private lazy var shapeLayers: [CAShapeLayer] = [innerLayer, outerLayer]
     
     private let rotationAnimKey = "rotation"
     private let strokeEndAnimKey = "strokeEnd"
-    
-    private var isAnimating = false
-    private var strokeEnd: Double = 0.8
-    private lazy var radius = self.size.width / 2 + 4
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -34,7 +33,7 @@ public class SpinningIndicator: UIView {
         createCircle()
     }
     
-    func createCircle() {
+    private func createCircle() {
         let center = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
         let startAngle = CGFloat(-Double.pi/2)
         let endAngle = startAngle + 2.0 * CGFloat(Double.pi)
@@ -103,7 +102,7 @@ public class SpinningIndicator: UIView {
 
 extension SpinningIndicator {
     
-    func beginAnimatingFromShrink() {
+    public func beginAnimatingFromShrink() {
         isAnimating = true
         DispatchQueue.main.async {
             if self.layer.animation(forKey: self.rotationAnimKey) == nil {
@@ -117,7 +116,7 @@ extension SpinningIndicator {
         }
     }
     
-    func shrink() {
+    public func shrink() {
         let min = CGFloat(0.02)
         let max = CGFloat(strokeEnd)
         self.shapeLayers.forEach { $0.strokeEnd = min }
