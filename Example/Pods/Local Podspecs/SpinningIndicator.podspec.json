@@ -1,8 +1,8 @@
 {
   "name": "SpinningIndicator",
-  "version": "0.1.0",
-  "summary": "A short description of SpinningIndicator.",
-  "description": "TODO: Add long description of the pod here.",
+  "version": "0.1.5",
+  "summary": "A loading indicator.",
+  "description": "An indicator which shows double spinning circles while loading.",
   "homepage": "https://github.com/toshihiro-yamazaki/SpinningIndicator",
   "license": {
     "type": "MIT",
@@ -13,10 +13,11 @@
   },
   "source": {
     "git": "https://github.com/toshihiro-yamazaki/SpinningIndicator.git",
-    "tag": "0.1.0"
+    "tag": "0.1.5"
   },
   "platforms": {
     "ios": "8.0"
   },
+  "swift_version": "4.0",
   "source_files": "SpinningIndicator/Classes/**/*"
 }

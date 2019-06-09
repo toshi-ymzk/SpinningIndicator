@@ -212,10 +212,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 333AB33F4Z;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 333AB33F4Z;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -482,6 +484,7 @@
 			baseConfigurationReference = EE9BBB447E8C24B9E09335AA /* Pods-SpinningIndicator_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 333AB33F4Z;
 				INFOPLIST_FILE = SpinningIndicator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -497,6 +500,7 @@
 			baseConfigurationReference = E2F24BCDD45CC8FB7BE9C0C1 /* Pods-SpinningIndicator_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 333AB33F4Z;
 				INFOPLIST_FILE = SpinningIndicator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -511,6 +515,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 51CED83C6E09567F12FFD273 /* Pods-SpinningIndicator_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 333AB33F4Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -533,6 +538,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A2E9BDD8E9B82308786A39CD /* Pods-SpinningIndicator_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 333AB33F4Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

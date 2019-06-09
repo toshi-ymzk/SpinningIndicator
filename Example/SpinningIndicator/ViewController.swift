@@ -11,7 +11,7 @@ import SpinningIndicator
 
 class ViewController: UIViewController {
     
-    let indicator = SpinningIndicator()
+    let indicator = SpinningIndicator(frame: UIScreen.main.bounds)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,17 +20,10 @@ class ViewController: UIViewController {
     }
     
     private func setupView() {
-        indicator.alpha = 0
         view.addSubview(indicator)
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        indicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-        indicator.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
-        indicator.widthAnchor.constraint(equalToConstant: 24).isActive = true
-        indicator.heightAnchor.constraint(equalToConstant: 24).isActive = true
-        indicator.endAnimating()
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-            self.indicator.alpha = 1
-        }
+        view.sendSubview(toBack: indicator)
+        indicator.addCircle(lineColor: UIColor(red: 255/255, green: 91/255, blue: 25/255, alpha: 1), lineWidth: 2, radius: 16, angle: 0)
+        indicator.addCircle(lineColor: UIColor.orange, lineWidth: 2, radius: 19, angle: CGFloat.pi)
     }
     
     @IBAction func showIndicator() {
@@ -47,4 +40,3 @@ class ViewController: UIViewController {
     }
 
 }
-

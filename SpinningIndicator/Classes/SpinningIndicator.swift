@@ -11,14 +11,11 @@ import UIKit
 
 public class SpinningIndicator: UIView {
     
-    public let size = CGSize(width: 24, height: 24)
-    public let radius = CGFloat(16)
+    public var size = CGSize(width: 24, height: 24)
     public var isAnimating = false
     public var strokeEnd: Double = 0.8
     
-    public let innerLayer = CAShapeLayer()
-    public let outerLayer = CAShapeLayer()
-    
+    private var circleLayers = [CAShapeLayer]()
     private let rotationAnimKey = "rotation"
     private let strokeEndAnimKey = "strokeEnd"
     
@@ -26,38 +23,29 @@ public class SpinningIndicator: UIView {
         super.init(coder: aDecoder)
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.clear
-        createCircle()
+        self.size = frame.size
     }
     
-    private func createCircle() {
+    public func addCircle(lineColor: UIColor, lineWidth: CGFloat, radius: CGFloat, angle: CGFloat) {
         let center = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
-        let startAngle = CGFloat(-Double.pi/2)
-        let endAngle = startAngle + 2.0 * CGFloat(Double.pi)
-        let innerPath = UIBezierPath(arcCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
-        let outerPath = UIBezierPath(arcCenter: center, radius: radius + 3, startAngle: startAngle + CGFloat(Double.pi), endAngle: endAngle + CGFloat(Double.pi), clockwise: true)
+        let startAngle = -CGFloat.pi / 2 + angle
+        let endAngle = startAngle + 2 * CGFloat.pi
+        let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+        let circleLayer = CAShapeLayer()
         
-        innerLayer.frame = CGRect(origin: .zero, size: size)
-        innerLayer.fillColor = UIColor.clear.cgColor
-        innerLayer.strokeColor = UIColor.init(red: 255/255, green: 91/255, blue: 25/255, alpha: 1).cgColor
-        innerLayer.lineWidth = 2
-        innerLayer.lineCap = kCALineCapRound
-        innerLayer.backgroundColor = UIColor.clear.cgColor
-        innerLayer.path = innerPath.cgPath
-        innerLayer.strokeEnd = CGFloat(strokeEnd)
-        layer.addSublayer(innerLayer)
-        
-        outerLayer.frame = CGRect(origin: .zero, size: size)
-        outerLayer.fillColor = UIColor.clear.cgColor
-        outerLayer.strokeColor = UIColor.orange.withAlphaComponent(1).cgColor
-        outerLayer.lineWidth = 2
-        outerLayer.lineCap = kCALineCapRound
-        outerLayer.backgroundColor = UIColor.clear.cgColor
-        outerLayer.path = outerPath.cgPath
-        outerLayer.strokeEnd = CGFloat(strokeEnd)
-        layer.addSublayer(outerLayer)
+        circleLayer.frame = CGRect(origin: .zero, size: size)
+        circleLayer.fillColor = UIColor.clear.cgColor
+        circleLayer.strokeColor = lineColor.cgColor
+        circleLayer.lineWidth = lineWidth
+        circleLayer.lineCap = kCALineCapRound
+        circleLayer.backgroundColor = UIColor.clear.cgColor
+        circleLayer.path = path.cgPath
+        circleLayer.strokeEnd = 0
+        layer.addSublayer(circleLayer)
+        circleLayers.append(circleLayer)
     }
     
     public func beginAnimating() {
@@ -68,7 +56,7 @@ public class SpinningIndicator: UIView {
             if self.layer.animation(forKey: self.rotationAnimKey) == nil {
                 self.layer.add(self.rotationAnimation, forKey: self.rotationAnimKey)
             }
-            [self.innerLayer, self.outerLayer].forEach { $0.add(
+            self.circleLayers.forEach { $0.add(
                 self.keyFrameRotationAnimation(
                     duration: 2,
                     times: [0, 0.3, 0.7, 1],
@@ -77,7 +65,7 @@ public class SpinningIndicator: UIView {
                     repeatCount: Float.infinity),
                 forKey: self.rotationAnimKey)
             }
-            [self.innerLayer, self.outerLayer].forEach { $0.add(
+            self.circleLayers.forEach { $0.add(
                 self.keyFrameStrokeEndAnimation(
                     duration: 2,
                     times: [0, 0.2, 0.3, 0.7, 1],
@@ -93,8 +81,8 @@ public class SpinningIndicator: UIView {
         isAnimating = false
         DispatchQueue.main.async {
             self.layer.removeAllAnimations()
-            [self.innerLayer, self.outerLayer].forEach { $0.removeAllAnimations() }
-            [self.innerLayer, self.outerLayer].forEach { $0.strokeEnd = 0 }
+            self.circleLayers.forEach { $0.removeAllAnimations() }
+            self.circleLayers.forEach { $0.strokeEnd = 0 }
         }
     }
 }
@@ -109,7 +97,7 @@ extension SpinningIndicator {
             }
             self.shrink()
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.4, execute: {
-                [self.innerLayer, self.outerLayer].forEach { $0.removeAllAnimations() }
+                self.circleLayers.forEach { $0.removeAllAnimations() }
                 self.beginAnimating()
             })
         }
@@ -118,8 +106,8 @@ extension SpinningIndicator {
     public func shrink() {
         let min = CGFloat(0.02)
         let max = CGFloat(strokeEnd)
-        [innerLayer, outerLayer].forEach { $0.strokeEnd = min }
-        [innerLayer, outerLayer].forEach { $0.add(
+        circleLayers.forEach { $0.strokeEnd = min }
+        circleLayers.forEach { $0.add(
             self.keyFrameRotationAnimation(
                 duration: 0.4,
                 times: [0, 1],
@@ -127,7 +115,7 @@ extension SpinningIndicator {
                 timingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)),
             forKey: self.rotationAnimKey)
         }
-        [innerLayer, outerLayer].forEach { $0.add(
+        circleLayers.forEach { $0.add(
             self.keyFrameStrokeEndAnimation(
                 duration: 0.4,
                 times: [0, 1],

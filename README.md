@@ -22,6 +22,16 @@ it, simply add the following line to your Podfile:
 pod 'SpinningIndicator'
 ```
 
+## Sample Code
+
+```swift
+let indicator = SpinningIndicator(frame: UIScreen.main.bounds)
+view.addSubview(indicator)
+indicator.addCircle(lineColor: UIColor(red: 255/255, green: 91/255, blue: 25/255, alpha: 1), lineWidth: 2, radius: 16, angle: 0)
+indicator.addCircle(lineColor: UIColor.orange, lineWidth: 2, radius: 19, angle: CGFloat.pi)
+indicator.beginAnimating()
+```
+
 ## Author
 
 Toshihiro Yamazaki, yamazaki.toshihiro@icloud.com
